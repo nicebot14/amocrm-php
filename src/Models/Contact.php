@@ -203,7 +203,11 @@ class Contact extends AbstractModel
 
         $response = $this->postRequest('/private/api/v2/json/contacts/set', $parameters);
 
-        return isset($response['contacts']) ? true : false;
+        return (
+            isset($response['contacts'])
+            && isset($response['contacts']['update'])
+            && !isset($response['contacts']['update']['errors'])
+        );
     }
 
     /**

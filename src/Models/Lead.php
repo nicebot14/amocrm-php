@@ -166,6 +166,6 @@ class Lead extends AbstractModel
             isset($response['leads'])
             && isset($response['leads']['update'])
             && !isset($response['leads']['update']['errors'])
-        ) ? true : false;
+        );
     }
 }
